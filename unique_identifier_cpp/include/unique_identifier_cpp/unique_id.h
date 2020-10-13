@@ -163,10 +163,11 @@ static inline boost::uuids::uuid fromURL(std::string const &url)
  *  certainly generate different UUIDs. The method used is RFC 4122
  *  version 1.
  */
-static inline boost::uuids::uuid fromTime(ros::Time timestamp, uint64_t hw_addr)
-{
-  return impl::genTime(timestamp, hw_addr);
-}
+// TODO(jacobperron): Support time-based UUID
+// static inline boost::uuids::uuid fromTime(ros::Time timestamp, uint64_t hw_addr)
+// {
+//   return impl::genTime(timestamp, hw_addr);
+// }
 
 /** @brief Create a UniqueID message from a UUID object.
  *
