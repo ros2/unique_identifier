@@ -31,7 +31,7 @@
 # POSSIBILITY OF SUCH DAMAGE.
 
 """
-Python module for unique_id helper functions.
+Python module for UUID helper functions.
 
 Various ROS components use universally unique identifiers
 (UUID_). This module provides functions for working with a common
