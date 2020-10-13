@@ -15,10 +15,10 @@
   <buildtool_depend>ament_cmake_ros</buildtool_depend>
 
   <build_depend>rclpy</build_depend>
-  <build_depend>uuid_msgs</build_depend>
+  <build_depend>unique_identifier_msgs</build_depend>
 
   <exec_depend>rclpy</exec_depend>
-  <exec_depend>uuid_msgs</exec_depend>
+  <exec_depend>unique_identifier_msgs</exec_depend>
 
   <test_depend>ament_cmake_gtest</test_depend>
   <test_depend>ament_cmake_nose</test_depend>

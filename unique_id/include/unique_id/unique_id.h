@@ -48,7 +48,7 @@
 #include <boost/uuid/uuid.hpp>
 #include <boost/uuid/uuid_io.hpp>
 
-#include <uuid_msgs/msg/unique_id.hpp>
+#include <unique_identifier_msgs/msg/uuid.hpp>
 
 #include <unique_id/impl/unique_id.h> // private implementation details
 
@@ -56,7 +56,7 @@
  *
  *  Various ROS components use universally unique identifiers. This
  *  header provides functions for working with a common
- *  uuid_msgs/UniqueID message, and the boost uuid class.
+ *  unique_identifier_msgs/msg/UUID message, and the boost uuid class.
  *
  *   - http://en.wikipedia.org/wiki/Uuid
  *   - http://tools.ietf.org/html/rfc4122.html
@@ -76,12 +76,12 @@
 namespace unique_id
 {
 
-/** @brief Create UUID object from UniqueID message.
+/** @brief Create UUID object from UUID ROS message.
  *
- *  @param msg uuid_msgs/UniqueID message.
+ *  @param msg unique_identifier_msgs/msg/UUID message.
  *  @returns boost::uuids::uuid object.
  */
-static inline boost::uuids::uuid fromMsg(uuid_msgs::msg::UniqueID const &msg)
+static inline boost::uuids::uuid fromMsg(unique_identifier_msgs::msg::UUID const &msg)
 {
   boost::uuids::uuid uu;
   std::copy(msg.uuid.begin(), msg.uuid.end(), uu.begin());
@@ -171,11 +171,11 @@ static inline boost::uuids::uuid fromTime(ros::Time timestamp, uint64_t hw_addr)
 /** @brief Create a UniqueID message from a UUID object.
  *
  *  @param uu boost::uuids::uuid object.
- *  @returns uuid_msgs/UniqueID message.
+ *  @returns unique_identifier_msgs/UUID message.
  */
-static inline uuid_msgs::msg::UniqueID toMsg(boost::uuids::uuid const &uu)
+static inline unique_identifier_msgs::msg::UUID toMsg(boost::uuids::uuid const &uu)
 {
-  uuid_msgs::msg::UniqueID msg;
+  unique_identifier_msgs::msg::UUID msg;
   std::copy(uu.begin(), uu.end(), msg.uuid.begin());
   return msg;
 }
@@ -193,12 +193,12 @@ static inline std::string toHexString(boost::uuids::uuid const &uu)
   return boost::uuids::to_string(uu);
 }
 
-/** @brief Get the canonical string representation for a UniqueID message.
+/** @brief Get the canonical string representation for a UUID message.
  *
- *  @param msg uuid_msgs/UniqueID message.
+ *  @param msg unique_identifier_msgs/msg/UUID message.
  *  @returns canonical UUID hex string: "01234567-89ab-cdef-0123-456789abcdef".
  */
-static inline std::string toHexString(uuid_msgs::msg::UniqueID const &msg)
+static inline std::string toHexString(unique_identifier_msgs::msg::UUID const &msg)
 {
   return boost::uuids::to_string(fromMsg(msg));
 }

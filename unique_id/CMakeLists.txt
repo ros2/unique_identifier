@@ -15,7 +15,7 @@ find_package(Boost REQUIRED)  # uuid, note - not a package/component of its own
 # ROS Dependencies
 find_package(ament_cmake_python REQUIRED)
 find_package(ament_cmake_ros REQUIRED)
-find_package(uuid_msgs REQUIRED)
+find_package(unique_identifier_msgs REQUIRED)
 
 ##############################################################################
 # Project Configuration
@@ -42,10 +42,10 @@ target_include_directories(
   ${PROJECT_NAME}
   INTERFACE
     $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
-    "$<BUILD_INTERFACE:${uuid_msgs_INCLUDE_DIRS}>"
+    "$<BUILD_INTERFACE:${unique_identifier_msgs_INCLUDE_DIRS}>"
     "$<BUILD_INTERFACE:${Boost_INCLUDE_DIRS}>"
     $<INSTALL_INTERFACE:include>
-    "$<INSTALL_INTERFACE:include:${uuid_msgs_INCLUDE_DIRS}>"
+    "$<INSTALL_INTERFACE:include:${unique_identifier_msgs_INCLUDE_DIRS}>"
     "$<INSTALL_INTERFACE:include:${Boost_INCLUDE_DIRS}>"
 )
 
@@ -89,6 +89,6 @@ ament_python_install_package(${PROJECT_NAME})
 
 ament_export_interfaces(${PROJECT_NAME})
 ament_export_dependencies(
-    uuid_msgs
+    unique_identifier_msgs
 )
 ament_package()

@@ -9,7 +9,7 @@
 
 using namespace unique_id;
 typedef boost::uuids::uuid uuid;
-typedef uuid_msgs::msg::UniqueID UniqueID;
+typedef unique_identifier_msgs::msg::UUID UniqueID;
 
 ///////////////////////////////////////////////////////////////
 // Test cases
