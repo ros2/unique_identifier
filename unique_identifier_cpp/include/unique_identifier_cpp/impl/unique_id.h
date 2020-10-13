@@ -47,7 +47,7 @@
 
 #include <boost/uuid/uuid_generators.hpp>
 
-namespace unique_id
+namespace unique_identifier_cpp
 {
 
   /** @brief C++ namespace for private implementation details. */
@@ -110,6 +110,6 @@ namespace unique_id
 
   } // end namespace impl
 
-} // end namespace unique_id
+} // end namespace unique_identifier_cpp
 
 #endif // _IMPL_UNIQUE_ID_H_

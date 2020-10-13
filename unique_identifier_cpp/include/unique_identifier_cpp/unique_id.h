@@ -50,9 +50,9 @@
 
 #include <unique_identifier_msgs/msg/uuid.hpp>
 
-#include <unique_id/impl/unique_id.h> // private implementation details
+#include <unique_identifier_cpp/impl/unique_id.h> // private implementation details
 
-/** @brief C++ namespace for unique_id helper functions.
+/** @brief C++ namespace for unique_identifier_cpp helper functions.
  *
  *  Various ROS components use universally unique identifiers. This
  *  header provides functions for working with a common
@@ -73,7 +73,7 @@
  *   - fromRandom() generates a random UUID.
  *   - fromURL() generates a name-based UUID from a URL string.
  */
-namespace unique_id
+namespace unique_identifier_cpp
 {
 
 /** @brief Create UUID object from UUID ROS message.
@@ -203,6 +203,6 @@ static inline std::string toHexString(unique_identifier_msgs::msg::UUID const &m
   return boost::uuids::to_string(fromMsg(msg));
 }
 
-} // end namespace unique_id
+} // end namespace unique_identifier_cpp
 
 #endif // _UNIQUE_ID_H_

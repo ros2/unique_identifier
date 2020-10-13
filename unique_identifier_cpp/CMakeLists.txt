@@ -3,7 +3,7 @@
 ##############################################################################
 
 cmake_minimum_required(VERSION 3.5)
-project(unique_id)
+project(unique_identifier_cpp)
 
 ##############################################################################
 # Find Packages
@@ -13,7 +13,6 @@ project(unique_id)
 find_package(Boost REQUIRED)  # uuid, note - not a package/component of its own
 
 # ROS Dependencies
-find_package(ament_cmake_python REQUIRED)
 find_package(ament_cmake_ros REQUIRED)
 find_package(unique_identifier_msgs REQUIRED)
 
@@ -56,8 +55,7 @@ target_include_directories(
 
 if(BUILD_TESTING)
   find_package(ament_cmake_gtest REQUIRED)
-  find_package(ament_cmake_nose REQUIRED)
-  add_subdirectory(tests)
+  add_subdirectory(test)
 endif()
 
 ##############################################################################
@@ -76,12 +74,6 @@ install(
   DIRECTORY include/${PROJECT_NAME}/
   DESTINATION include/${PROJECT_NAME}
 )
-
-##############################################################################
-# Python Project Installation
-##############################################################################
-
-ament_python_install_package(${PROJECT_NAME})
 
 ##############################################################################
 # Ament Exports

@@ -5,9 +5,9 @@
 
 #include <gtest/gtest.h>
 
-#include <unique_id/unique_id.h>
+#include <unique_identifier_cpp/unique_id.h>
 
-using namespace unique_id;
+using namespace unique_identifier_cpp;
 typedef boost::uuids::uuid uuid;
 typedef unique_identifier_msgs::msg::UUID UniqueID;
 
