@@ -31,11 +31,11 @@
 # POSSIBILITY OF SUCH DAMAGE.
 
 """
-Python module for unique_id helper functions.
+Python module for UUID helper functions.
 
 Various ROS components use universally unique identifiers
 (UUID_). This module provides functions for working with a common
-`uuid_msgs/UniqueID`_ message, and the standard Python
+`unique_identifier_msgs/msg/UUID`_ message, and the standard Python
 :class:`uuid.UUID` class.
 
 Programmers are free to create UUID objects using any approved `RFC
@@ -49,7 +49,7 @@ applications are likely to need either a random or a name-based UUID.
  * :func:`fromRandom` generates a random UUID.
  * :func:`fromURL` generates a name-based UUID from a URL string.
 
-.. _`uuid_msgs/UniqueID`: http://ros.org/doc/api/uuid_msgs/html/msg/UniqueID.html
+.. _`unique_identifier_msgs/msg/UUID`: http://docs.ros2.org/latest/api/unique_identifier_msgs/msg/UUID.html
 .. _`RFC 4122`: http://tools.ietf.org/html/rfc4122.html
 .. _UUID: http://en.wikipedia.org/wiki/Uuid
 
@@ -58,14 +58,14 @@ applications are likely to need either a random or a name-based UUID.
 # enable some python3 compatibility options:
 from __future__ import absolute_import, print_function, unicode_literals
 
-from uuid_msgs.msg import UniqueID
+from unique_identifier_msgs.msg import UUID
 
 import uuid
 
 def fromMsg(msg):
-    """Create UUID object from UniqueID message.
+    """Create UUID object from UUID ROS message.
 
-    :param msg: `uuid_msgs/UniqueID`_ message.
+    :param msg: `unique_identifier_msgs/msg/UUID`_ message.
     :returns: :class:`uuid.UUID` object.
     """
     return uuid.UUID(bytes = msg.uuid)
@@ -127,17 +127,17 @@ def fromTime(timestamp, hw_addr):
     return uuid.UUID(fields=data)
 
 def toMsg(uuid_obj):
-    """Create a UniqueID message from a UUID object.
+    """Create a UUID message from a UUID object.
 
     :param uuid_obj: standard Python :class:`uuid.UUID` object.
-    :returns: `uuid_msgs/UniqueID`_ message.
+    :returns: `unique_identifier_msgs/msg/UUID`_ message.
     """
-    return UniqueID(uuid = uuid_obj.bytes)
+    return UUID(uuid = uuid_obj.bytes)
 
 def toHexString(msg):
-    """Get the canonical hexadecimal string representation for a UniqueID message.
+    """Get the canonical hexadecimal string representation for a UUID message.
 
-    :param msg: `uuid_msgs/UniqueID`_ message.
+    :param msg: `unique_identifier_msgs/msg/UUID`_ message.
     :returns: UUID hex string: '01234567-89ab-cdef-0123-456789abcdef'.
 
     A :class:`uuid.UUID` object yields the same representation via the
